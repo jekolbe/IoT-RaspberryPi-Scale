@@ -325,7 +325,8 @@ dotnet restore
 ```
 
 Add the logic to `IoTEventHubFunction.cs` and change the values at `<event-hub-name>` and `<signalr-app>`. The event hub name is the name you have copied earlier. The signalr app url can be accessed by navigating to your Azure web app and copying the url from there in the overview.
-```chsarp
+
+```csharp
 using System; 
 using System.Collections.Generic; 
 using System.Linq; 
