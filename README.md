@@ -94,6 +94,7 @@ sudo pip3 install azure-iothub-device-client
 Next you will need some kind of Azure subscription in order to use the services from the Azure portal. You can register for a trial [here](https://azure.microsoft.com/de-de/free/)
 
 Navigate to the [Azure Portal](https://portal.azure.com/) and click on "Create new ressource". Search for "IoT Hub" and click on "Create". Next you should fill in the form. I also recommend to Create a new ressource group and call it something like `iot-prototyp`. In this step you also have to give your IoT Hub a name, in my case `iot-waage`. Click on the tab "Size and scale" at the top and choose "F1: Free tier" in the dropdown. Click on "Review and create".
+
 <img src="https://drive.google.com/uc?export=view&id=1nF4-7FDvSqHR-NOZSqGazoCKS1pif6AW" width="500">
                                                                                                   
 Now we have to add the Raspberry Pi as new device to the hub. Go to "IoT devices" and click on "New" as seen below.
