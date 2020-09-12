@@ -3,7 +3,9 @@ Implementing a RaspberryPi as an IoT device to weigh objects and show the weight
 
 ## Table of Contents
 * [About the project](#about-the-project)
-* [Setup Raspberry Pi](#setup-raspberry-pi)
+* **Step 1** [Setup Raspberry Pi](#setup-raspberry-pi)
+* **Step 2** [Stream data to Azure IoT Hub](#stream-data-to-azure-iot-hub)
+* **Step 3** [Show data on Dotnet web app](#show-data-on-dotnet-web-app)
 
 ## About the project
 The **aim** of this project is to present a way to use a Raspberry Pi Model 1 and a load cell as a scale. The Pi should then be configured as an IoT device via Azure IoT Hub. All the data streamed to the IoT Hub should then be presented on a ASP.NET Web App by using Azure Function.
@@ -69,4 +71,6 @@ Search for the line which says `referenceunit = 1` and change the value to your 
 ```
 referenceunit = -775
 ```
-You also have to pay attention to line which says `hx = HX711(5, 6)`. The numbers 5 and 6 indicate which GPIO are used. In my case I had to change the numbers to 18 and 23 as I described earlier.
+You also have to pay attention to line which says `hx = HX711(5, 6)`. The numbers 5 and 6 indicate which GPIO are used. In my case I had to change the numbers to 18 and 23 as I described earlier. If setup up correctly you will now see some values which should be the weight of the objects in gram.
+
+## Stream data to Azure IoT Hub
