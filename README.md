@@ -1,5 +1,10 @@
 # IoT-RaspberryPi-Scale
 Implementing a RaspberryPi as an IoT device to weigh objects and show the weight on a web app
+<img src="https://drive.google.com/uc?export=view&id=1EDToCJYf-1djUHyYib_CJt84bjaeWEHZ" width="300">
+
+<img src="https://drive.google.com/uc?export=view&id=1P3COD9YsuKv7YA0wJdXE4lCbruYsp3Fv" width="500">
+
+
 
 ## Table of Contents
 * [About the project](#about-the-project)
@@ -74,3 +79,26 @@ referenceunit = -775
 You also have to pay attention to line which says `hx = HX711(5, 6)`. The numbers 5 and 6 indicate which GPIO are used. In my case I had to change the numbers to 18 and 23 as I described earlier. If setup up correctly you will now see some values which should be the weight of the objects in gram.
 
 ## Stream data to Azure IoT Hub
+The next step is to stream the data to the [Azure IoT Hub](https://azure.microsoft.com/de-de/services/iot-hub/). In this step I am using this [YouTube video](https://www.youtube.com/watch?v=7T91jbtm95A) as a reference. Feel free to check out the steps over there.
+
+### Install dependencies
+We have to install the following dependencies on the pi. Make sure you are using at least Jessie as debian version on your pi. Even better would be Stretch or Buster. Otherwise you will run into issues with Python 3.
+```
+sudo pip3 install azure-iot-device
+sudo pip3 install azure-iot-hub
+sudo pip3 install azure-iothub-service-client
+sudo pip3 install azure-iothub-device-client
+```
+
+### Create Azure IoT Hub
+Next you will need some kind of Azure subscription in order to use the services from the Azure portal. You can register for a trial [here](https://azure.microsoft.com/de-de/free/)
+
+Navigate to the [Azure Portal](https://portal.azure.com/) and click on "Create new ressource". Search for "IoT Hub" and click on "Create". Next you should fill in the form. I also recommend to Create a new ressource group and call it something like `iot-prototyp`. In this step you also have to give your IoT Hub a name, in my case `iot-waage`. Click on the tab "Size and scale" at the top and choose "F1: Free tier" in the dropdown. Click on "Review and create".
+<img src="https://drive.google.com/uc?export=view&id=1nF4-7FDvSqHR-NOZSqGazoCKS1pif6AW" width="500">
+                                                                                                  
+Now we have to add the Raspberry Pi as new device to the hub. Go to "IoT devices" and click on "New" as seen below.
+<img src="https://drive.google.com/uc?export=view&id=1SV4cFxvCWMdKnJVbBZndKG60Tlk01mEk" width="500">
+
+Chosse "raspberrypi" as Device Id on the next screen and leave anything else as it is. Click on "Save"
+
+### Use python script for data transfer
