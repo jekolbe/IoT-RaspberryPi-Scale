@@ -55,6 +55,10 @@ At this point you have to use four jumper cables connecting the HX711 and the pi
 * Red: VCC to pin 2 (+5V)
 You can find a scheme of the pins for the Pi 1 [here](https://developer-blog.net/wp-content/uploads/2013/09/raspberry-pi-rev2-gpio-pinout.jpg). If you are using a newer Pi with more Pins then just look up and connect to orange (DT) and yellow (SCK) to empty pins. Later on you have to change the pin number in the code.
 
+The final setup should looke something like this:
+
+<img src="https://drive.google.com/uc?export=view&id=14retIyNsywgj5NyyjGW3G9uk2B0oNSdr" width="300">
+
 ### Configuring the software
 In order to weigh an object we are going to use a python library. First of all you have to clone this library on the Pi:
 ```
